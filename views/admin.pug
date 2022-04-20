@@ -1,0 +1,106 @@
+extends layout
+
+block content
+ link(rel='stylesheet', href='/stylesheets/admin.css')
+ p #{msg?msg:'NIE MA :( '}
+ .loader
+  .lds-dual-ring
+ .main-content
+  .main
+   .controll
+    a(href="").span Połącz Konto Allegro
+   .flexible
+    .frame
+     .addGame
+       .content.admin
+        span.text32
+          span.typ.gra(data-typ='game' title='Konto z grą,pojedyńcza lub kilka gier na koncie') Gra
+          span(style='color:red;') |
+          span.typ.konto(data-typ='account' title='Konto powiązane z zakupem na aukcji allegro(id z bazy automater)') Konto
+        .game-cont
+         form( method='post' id='myForm')
+          .wrapper
+           input(type='text'  id='nameg' name='name' placeholder="Nazwa Gry/Konta" required).input
+           span.focus-input
+          .wrapper
+           input(type='text' name='text' id='loging' placeholder="Login Gry/Konta" required).input
+           span.focus-input
+          .wrapper
+           input(type='text' name='text' id='passwordg' placeholder="Haslo Gry/Konta" required).input
+           span.focus-input
+          .wrapper(style='display:none;' )
+           input(type='file' name='file' id='file' placeholder="Plik" ).inputfile
+           label(for='file') IMG Gry
+         .wrapper.margin-top
+          input(type='text' name='url' id='url' placeholder="URL Gry" required).input
+          span.focus-input
+         input(type='checkbox').checkbox
+         p Zaznacz,jeśli gra jest grą gratisowa (jest mozliwa do wybrania przez użytkownika)
+         .btn
+          button.login Dodaj 
+        .account-cont
+         form( method='post' id='myForm')
+          .wrapper
+           input(type='text'  id='name' name='name' placeholder="ID konta(automater)" required).input
+           span.focus-input
+          .wrapper
+           input(type='text' name='text' id='login' placeholder="Login Gry/Konta" required).input
+           span.focus-input
+          .wrapper
+           input(type='text' name='text' id='password' placeholder="Haslo Gry/Konta" required).input
+           span.focus-input
+         p Dodaj gry na konto z listy obok poprzez klik w dany tytuł
+         p Lista gier/kont z grami powinna odpowiadać liscie tytułów na aukcji
+         .btn
+          button.login.acc-log Dodaj 
+    .frame.prev
+     .top
+     .two Nazwa Gry
+    .frame
+     .list
+      .floatingdesc
+      .choose
+       .option(data-option='game' title='Najedz myszka aby wyszukać dany tytuł') Gry
+        .sbox
+         input(type="text", name="").search
+       .option(data-option='user') Użytkownicy
+      .table.game
+       table#customers.gamelist
+        tr
+         th Podgląd
+         th Nazwa 
+         th Login 
+         th Hasło
+         th Typ Konta
+         th Usuń
+         each game in games
+          tr.game-row
+           td
+            img(width='35px' data-src=game.img)
+           td.nm=game.name
+           td=game.login
+           td=game.password
+           td=game.typ
+           td(data-del=game.name).img X
+          
+      .table.user(style='display:none;')
+       table#customers
+        tr
+         th E-Mail
+         th Odebrane? 
+         th Hasło
+         td Zablokuj
+         each user in users
+          tr(style=user.banned?'background:red;':'' data-received=user.done?'yes':'no' data-email=user.username).useracc
+           td=user.username
+           td #{user.done?'Tak':'Nie'}
+           td=user.password
+           td(data-ban=user.username,data-banned=user.banned?'true':'false').ban
+            span(style=user.banned?'color:green;' :'color:red;') X
+
+
+ .footer
+  h3 Salon-Gier-PC
+  script(src="/javascripts/preview.js")
+
+  

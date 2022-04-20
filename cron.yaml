@@ -1,0 +1,4 @@
+cron:
+- description: "reseting time key"
+  url: /users/cron
+  schedule: every 48 hours

@@ -1,0 +1,337 @@
+body,
+html {
+    opacity: .5;
+    animation: FadeIn .5s forwards;
+    cursor: auto;
+    background: #000;
+    box-sizing: content-box;
+    margin: auto;
+    overflow-x: hidden;
+    font-family: Montserrat, sans-serif
+}
+
+.box {
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    color: black;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+}
+
+@keyframes FadeIn {
+    to {
+        opacity: 1
+    }
+}
+
+.main-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex: 5;
+    height: calc(100% + 50px)
+}
+
+.main {
+    background-image: url(/images/back.jpg);
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    order: 1;
+    z-index: 99;
+    flex: 4;
+    color: #fff
+}
+
+.navigator {
+    flex: 1;
+    height: 100%;
+    z-index: 99;
+    user-select: none;
+    -moz-user-select: -moz-none;
+    order: 2;
+    transition: 0;
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+}
+
+.welcome {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: solid 1px #403866;
+    height: 50px;
+}
+
+.listGames {
+    position: relative;
+    height: calc(100% - 150px);
+    display: inline-flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: center;
+    padding-right: 17px;
+}
+
+.info-type,
+.info-login,
+.info-password {
+    display: none;
+}
+
+.item {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 1%;
+    background: rgba(0, 0, 0, .7);
+}
+
+.fix {
+    height: calc(100% - 55px);
+    width: 100%;
+}
+
+.game-title {
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, .7);
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    bottom: 0;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center
+}
+
+.modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .88);
+}
+
+.item>img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 51px;
+    left: 0;
+    color: #fff;
+    background-image: linear-gradient(to right bottom, #000007, rgba(0, 0, 0, .7)), linear-gradient(transparent, rgba(42, 111, 158, .4) 70%), url(/images/back.jpg);
+    background-size: cover;
+    bottom: 0
+}
+
+.choose:hover {
+    cursor: pointer;
+    user-select: none;
+    color: #403866;
+}
+
+.input {
+    color: #403866;
+    line-height: 1.2;
+    position: relative;
+    font-size: 18px;
+    display: inline;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: 0 0;
+    height: 62px
+}
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none
+}
+
+input {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    border: none;
+    text-indent: 0;
+    text-shadow: none;
+    display: inline-block;
+    outline: 0;
+    text-align: start;
+    margin: 0;
+    font: 400 53.3333px Arial
+}
+
+.button {
+    background-color: greenyellow;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px black;
+}
+
+.button:active {
+    box-shadow: 0 0 0 black;
+}
+
+.log,
+.pass {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.log::selection {
+    color: rgba(42, 111, 158, .4);
+}
+
+h2 {
+    text-align: center;
+}
+
+.pass::selection {
+    color: rgba(42, 111, 158, .4);
+}
+
+.addGame {
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: #403866;
+}
+
+.option {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.gameBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%, -200px);
+    z-index: 999;
+    width: 35%;
+}
+
+.slide {
+    display: block;
+}
+
+.box-g {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    color: black;
+    text-align: center;
+}
+
+.input-g {
+    color: #403866;
+    line-height: 1.2;
+    position: relative;
+    font-size: 18px;
+    display: inline;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: 0 0;
+    height: 62px
+}
+
+.button-g {
+    background-color: #403866;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px black;
+}
+
+.mobmenu {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    top: 8px;
+    display: none;
+}
+
+@media only screen and (max-width:600px) {
+    body,
+    html {
+        overflow: hidden
+    }
+    .main-content {
+        display: block;
+    }
+    .mobmenu {
+        display: block;
+    }
+    .navigator {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        display: flex;
+        display: none;
+        z-index: 999;
+        transition: 0.4s;
+    }
+    .main {
+        background-image: url(/images/back.jpg);
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        position: absolute;
+        order: 2;
+        z-index: 99;
+        color: #fff
+    }
+}

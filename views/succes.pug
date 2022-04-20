@@ -1,0 +1,49 @@
+﻿extends layout
+block content
+ link(rel='stylesheet', href='/stylesheets/succes.css')
+ .mobmenu
+  img(data-src='https://img.icons8.com/color/48/000000/menu.png')
+ .modal
+  .box
+   h2 Kliknij aby skopiować
+   p Login
+   input(type='text' ).log.input 
+   p Hasło
+   input(type='text').pass.input
+   p Pamiętaj! SteamGuard do danej gry mozesz uzyskac raz na 3 dni!
+   button.button Klucz SteamGuard
+   h2.ans
+ .gameBox
+  .box-g
+   p Jeśli Gra nie dodała się automatycznie,mozesz dodać ją manualnie przez formularz niżej
+   p Login
+   input(type='text' ).adlog.input-g
+   p Hasło
+   input(type='text' ).adpas.input-g
+   button.button-g Dodaj Grę
+ .main-content
+  .navigator
+   .welcome
+    img(data-src="https://img.icons8.com/ios/50/000000/user.png")
+    span Witaj,#{user.username}
+   .option
+    .addGame Dodaj grę
+  .main
+   h2
+    span(data-type='game').game.choose Gry 
+    span |
+    span(data-type='account').account.choose  Konta
+   .listGames.fix
+    each game in owned
+     .item
+      img(data-src=game.img alt='game')
+      .info-type=game.typ
+      .info-login=game.login
+      .info-password=game.password
+      .game-title
+       .span=game.name
+ .footer
+  h3 Salon-Gier-PC
+ script(src="/javascripts/getGame.js")
+  
+

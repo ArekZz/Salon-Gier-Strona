@@ -1,0 +1,11 @@
+runtime: nodejs10
+env_variables:
+  GCS_BUCKET: wiadro13121
+  GCLOUD_PROJECT: salongierpc
+  GCS_KEYFILE: ./config.json
+  MJ_APIKEY_PUBLIC: c5ac6c5c733b973d97f98edd0df25577
+  MJ_APIKEY_PRIVATE: 87489bd2e636fd54c18b255c79e987d1
+handlers:
+- url: /.*
+  script: auto
+  secure: always

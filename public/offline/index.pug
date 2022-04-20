@@ -1,0 +1,44 @@
+extends layout
+block content
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  if msg.length
+    .error-msg= msg
+  .main-content
+    .main
+      .flexible
+        .frame.left 
+          .top
+            img(data-src='/images/pad.svg' src=""  width='60%', alt="img")
+          .bottom
+            svg(height='100%' width='100%' xmlns="http://www.w3.org/2000/svg")
+              rect(class='shape' height='100%' width='100%')
+              span.button Zaloguj
+          .login-form
+            .content
+              form( method='post' action='/users/login')
+                span.text32 Login
+                .wrapper
+                  input(type='text' id='username' name='username' placeholder="Username" required).input
+                  span.focus-input
+                .wrapper
+                  input(type='password' id='password' name='password' placeholder="Password" required).input
+                  span.focus-input
+                input(type="checkbox" id='remember' name="remember_me").input
+                label(for="remember_me")  Zapamietaj Mnie
+                .btn
+                  button.login  Login
+                .hide
+                  .arrleft
+                  .arrright
+        .frame.right
+            .top
+              img(data-src='/images/shop.svg' src="" width='60%', alt="img")
+            .bottom
+              svg(height='100%' width='100%' xmlns="http://www.w3.org/2000/svg")
+                rect(class='shape' height='100%' width='100%')
+              span Kup
+    .footer
+      h3 Salon-Gier-PC
+    .fb-customerchat(page-id=2340931832890682 logged_in_greetings="Jak możemy Ci pomóc? :)")
+    script(src="/javascripts/helper.js")
+    script(src='/javascripts/pwa.js')

@@ -1,0 +1,24 @@
+extends layout
+block content
+ link(rel='stylesheet', href='/stylesheets/panel.css')
+ if user
+  .hello
+   div Witaj 
+   div=user.username
+ .main-content
+  .main
+   h1.confirm > Wybierz Gry <
+   p.info Pozostalo do wyboru: 
+    span.data 
+   .listGames
+    each game in games
+     .item
+      img(data-src=game.img alt='game')
+      input(type='checkbox'  id=game.name data-game=game.name)
+      label(for=game.name).labelinput 
+      .game-title
+       .span=game.name
+
+ .footer
+  h3 Salon-Gier-PC
+  script(src="/javascripts/chooseGames.js")
